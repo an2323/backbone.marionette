@@ -10,9 +10,9 @@ var MyApp = new Backbone.Marionette.Application();
 
 ## Documentation Index
 
-* [Добавление инициализаторов](#Добавление инициализаторов)
-* [Application Event](#application-event)
-* [Starting An Application](#starting-an-application)
+* [Добавление инициализаторов](#добавление-инициализаторов)
+* [События объекта Application](#cобытия-объекта-Application)
+* [Запуск приложения](#запуск-приложения)
 * [The Application Channel](#the-application-channel)
   * [Event Aggregator](#event-aggregator)
   * [Request Response](#request-response)
@@ -52,21 +52,17 @@ MyApp.addInitializer(function(options){
 
 Аргумент `options` передается из метода `start` (см. ниже).
 
-Функции-инициализаторы будут гарантировано вызваны, независимо от того, когда вы их добавили к объекту app. Если вы их добавили перед стартом app, они будут вызваны после того, как будет вызван метод start объекта app. Если же вы добавили их после старта приложения, они будут вызваны незамедлительно.
+Функции-инициализаторы будут гарантировано вызваны, независимо от того, когда вы их добавили к объекту app. Если вы их добавили перед стартом app, они будут вызваны после того, как будет вызван метод start объекта app. Если же вы добавили их после старта приложения, они будут вызваны сразу.
 
-## Application Event
+## События объекта Application
 
-The `Application` object raises a few events during its lifecycle, using the
-[Marionette.triggerMethod](./marionette.functions.md) function. These events
-can be used to do additional processing of your application. For example, you
-may want to pre-process some data just before initialization happens. Or you may
-want to wait until your entire application is initialized to start
-`Backbone.history`.
+В течении своего жизненного цикла, объект `Application`вызывает несколько события, используя функцию
+[Marionette.triggerMethod](./marionette.functions.md). Эти события можно использовать для дополнительной обработки вашего приложения. Например, вы можете захотеть обработать некоторые данные до того, как сработает функция инициализации. Или вы можете захотеть подождать пока приложение полностью инициализируется, а затем запустить `Backbone.history`.
 
-The events that are currently triggered, are:
+События, которые сработают:
 
-* **"before:start" / `onBeforeStart`**: fired just before the `Application` starts and before the initializers are executed.
-* **"start" / `onStart`**: fires after the `Application` has started and after the initializers have been executed.
+* **"before:start" / `onBeforeStart`**: запускаеся запуска `Application` и до того, как будут вызваны функции инициализаторы.
+* **"start" / `onStart`**: запускается после запуск `Application` и после того, как отработают функции инициализаторы.
 
 ```js
 MyApp.on("before:start", function(options){
@@ -80,10 +76,9 @@ MyApp.on("start", function(options){
 });
 ```
 
-The `options` parameter is passed through the `start` method of the application
-object (see below).
+Параметр `options` пришел из метода `start` объекта application (см. ниже).
 
-## Starting An Application
+## Запуск приложения
 
 Once you have your application configured, you can kick everything off by
 calling: `MyApp.start(options)`.
