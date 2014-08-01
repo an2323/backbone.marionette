@@ -1,13 +1,8 @@
-# Marionette.Application...
+# Marionette.Application.
 
-The `Backbone.Marionette.Application` object is the hub of your composite
-application. It organizes, initializes and coordinates the various pieces of your
-app. It also provides a starting point for you to call into from your HTML
-script block, or directly from your JavaScript files if you prefer to go that
-route.
+Объект `Backbone.Marionette.Application` является центральной частью вашего приложения. Он организует, инициализирует и координирует различные части вашего приложения. Также он определяет начальную точку запуска вашего приложения из JavaScript блока в HTML файле или прямо из JavaScript файла.
 
-The `Application` is meant to be instantiated directly, although you can extend
-it to add your own functionality.
+`Application` сразу предназначен для применения, хотя вы можете его расширить своей собственной функциональностью.
 
 ```js
 var MyApp = new Backbone.Marionette.Application();
@@ -33,12 +28,9 @@ var MyApp = new Backbone.Marionette.Application();
   * [Removing Regions](#removing-regions)
 * [Application.getOption](#applicationgetoption)
 
-## Adding Initializers
+## Добавление инициализаторов
 
-Your application needs to do useful things, like displaying content in your
-regions, starting up your routers, and more. To accomplish these tasks and
-ensure that your `Application` is fully configured, you can add initializer
-callbacks to the application.
+Ваше приложение нуждается в некоторых нужных вещах, таких как отображение контента в регионах, запуск маршрутизатора и т.д. Для достижения данных целей, убедитесь, что ваш `Application` полностью сконфигурирован, вы можете добавить функции-инициализаторы обратного вызова к своему приложению.
 
 ```js
 MyApp.addInitializer(function(options){
