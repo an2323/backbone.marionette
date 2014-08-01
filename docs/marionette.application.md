@@ -1,8 +1,8 @@
 # Marionette.Application.
 
-Объект `Backbone.Marionette.Application` является центральной частью вашего приложения. Он организует, инициализирует и координирует различные части вашего приложения. Также он определяет начальную точку запуска вашего приложения из JavaScript блока в HTML файле или прямо из JavaScript файла.
+Объект `Backbone.Marionette.Application` является центральной частью вашего приложения. Он организует, инициализирует и координирует различные части вашего приложения. Также он определяет начальную точку запуска вашего приложения из JavaScript блока в HTML или прямо из JavaScript файла.
 
-`Application` сразу предназначен для применения, хотя вы можете его расширить своей собственной функциональностью.
+`Application` предназначен для прямого применения, хотя вы можете его расширить своей собственной функциональностью.
 
 ```js
 var MyApp = new Backbone.Marionette.Application();
@@ -10,7 +10,7 @@ var MyApp = new Backbone.Marionette.Application();
 
 ## Documentation Index
 
-* [Adding Initializers](#adding-initializers)
+* [Добавление инициализаторов](#Добавление инициализаторов)
 * [Application Event](#application-event)
 * [Starting An Application](#starting-an-application)
 * [The Application Channel](#the-application-channel)
@@ -47,17 +47,12 @@ MyApp.addInitializer(function(options){
 });
 ```
 
-These callbacks will be executed when you start your application,
-and are bound to the application object as the context for
-the callback. In other words, `this` is the `MyApp` object inside
-of the initializer function.
+Эти функции обратного вызова буду выполнены, когда стартует ваше приложение,
+где в качестве контекста будет выступать объект application. Если переформулировать, то  `this` это объект `MyApp` внутри функции инициализатора.
 
-The `options` argument is passed from the `start` method (see below).
+Аргумент `options` передается из метода `start` (см. ниже).
 
-Initializer callbacks are guaranteed to run, no matter when you
-add them to the app object. If you add them before the app is
-started, they will run when the `start` method is called. If you
-add them after the app is started, they will run immediately.
+Функции-инициализаторы будут гарантировано вызваны, независимо от того, когда вы их добавили к объекту app. Если вы их добавили перед стартом app, они будут вызваны после того, как будет вызван метод start объекта app. Если же вы добавили их после старта приложения, они будут вызваны незамедлительно.
 
 ## Application Event
 
